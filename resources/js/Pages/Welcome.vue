@@ -30,10 +30,10 @@ defineProps({
 </script>
 
 <template>
- 
+
 
   <body>
-    
+
     <header
       class="text-center text-white masthead mt-5"
       style="background: url('assets/img/IMG-20230709-WA0017.jpg') left / cover"
@@ -50,12 +50,12 @@ defineProps({
     <Link
         :href="route('login')"
         class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm btn btn-primary"
-        >Log in</Link>
+        >Autenticarse</Link>
     <Link
         v-if="canRegister"
         :href="route('register')"
         class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm btn btn-primary"
-        >Register</Link>
+        >Registrarse</Link>
 </template>
 
 </div>
@@ -84,7 +84,7 @@ defineProps({
         class="table-responsive d-flex justify-content-center"
         style="padding-bottom: 0px; margin-bottom: 66px"
       >
-        <table class="table w-50">
+        <table class="table w-50 table-bordered border-dark table-hover tabla tabla-oferta">
           <thead>
             <tr>
 
@@ -106,13 +106,12 @@ defineProps({
           </tbody>
         </table>
       </div>
-  
+
       <div class="container">
         <div class="row">
-          <div class="col-lg-4">
+          <div class="col-lg-4 temblor">
             <div
               class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3"
-              data-bss-hover-animate="swing"
               style="
                 background: var(--bs-gray-200);
                 box-shadow: 0px 0px 6px 1px;
@@ -121,7 +120,7 @@ defineProps({
                 padding-bottom: 55px;
               "
             >
-           
+
               <div class="d-flex features-icons-icon">
                 <i
                   class="icon-star m-auto text-primary"
@@ -132,8 +131,8 @@ defineProps({
               <p class="lead mb-0">Happy Hours, descuentos, promociones</p>
             </div>
           </div>
-       
-          <div class="col-lg-4">
+
+          <div class="col-lg-4 temblor">
             <div
               class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3"
               data-bss-hover-animate="swing"
@@ -170,7 +169,7 @@ defineProps({
               </p>
             </div>
           </div>
-          <div class="col-lg-4">
+          <div class="col-lg-4 temblor">
             <div
               class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3"
               data-bss-hover-animate="swing"
@@ -198,7 +197,7 @@ defineProps({
       <div class="container-fluid p-0">
         <div class="row g-0">
           <div
-            class="col-lg-6 text-white order-lg-2 showcase-img"
+            class="col-lg-6 text-white order-lg-2 showcase-img reveal fade-right"
             style="
               background: url('assets/img/pexels-flo-dahm-541216.jpg') center /
                 cover;
@@ -208,8 +207,8 @@ defineProps({
           >
             <span></span>
           </div>
-      
-          <div class="col-lg-6 my-auto order-lg-1 showcase-text">
+
+          <div class="col-lg-6 my-auto order-lg-1 showcase-text reveal fade-left">
             <h2>Comida</h2>
             <p class="lead mb-0">
               Nuestros chefs expertos han creado un menú excepcional que ofrece
@@ -222,7 +221,7 @@ defineProps({
         </div>
         <div class="row g-0">
           <div
-            class="col-lg-6 text-white showcase-img"
+            class="col-lg-6 text-white showcase-img reveal fade-left"
             style="
               background: url('assets/img/pexels-valeria-boltneva-1200348.jpg')
                 center / cover no-repeat;
@@ -232,7 +231,7 @@ defineProps({
           >
             <span></span>
           </div>
-          <div class="col-lg-6 my-auto order-lg-1 showcase-text">
+          <div class="col-lg-6 my-auto order-lg-1 showcase-text reveal fade-right">
             <h2>Bebidas</h2>
             <p class="lead mb-0">
               Ofrecemos una amplia selección de cervezas frías, vinos finos y
@@ -242,7 +241,7 @@ defineProps({
         </div>
         <div class="row g-0">
           <div
-            class="col-lg-6 text-white order-lg-2 showcase-img"
+            class="col-lg-6 text-white order-lg-2 showcase-img reveal fade-right"
             style="
               background: url('assets/img/pexels-feyza-simsek-16933554.jpg')
                 center / cover no-repeat;
@@ -251,7 +250,7 @@ defineProps({
           >
             <span></span>
           </div>
-          <div class="col-lg-6 my-auto order-lg-1 showcase-text">
+          <div class="col-lg-6 my-auto order-lg-1 showcase-tex reveal fade-left">
             <h2>Eventos</h2>
             <p class="lead mb-0">
               En nuestro bar, siempre hay algo emocionante sucediendo. Desde
@@ -308,7 +307,7 @@ defineProps({
       <footer class="text-center"></footer>
     </section>
  <Foot></Foot>
- 
+
 
   </body>
 

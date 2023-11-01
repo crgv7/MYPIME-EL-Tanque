@@ -4,13 +4,13 @@ import Swal from 'sweetalert2';
 import { Head } from '@inertiajs/vue3';
 import {useForm} from '@inertiajs/vue3';
 import { Link } from '@inertiajs/vue3'
-import ModalOrder from '@/Components/ModalOrder.vue';
+import ModalContact from '@/Components/ModalContact.vue';
 import Foot from '@/Components/Foot.vue';
 
 
 const form = useForm({});
 const props = defineProps({
-    orders: {type:Object}
+    contacts: {type:Object}
 });
 
 const deleteOrder= (id) => {
@@ -24,7 +24,7 @@ const deleteOrder= (id) => {
         confirmButtonText: 'Borrar'
       }).then((result) => {
         if (result.isConfirmed) {
-            form.delete(route('orders.destroy', id))
+            form.delete(route('contacts.destroy', id))
             Swal.fire(
                 'Eliminar',
                 'Se ha eliminado',
@@ -34,15 +34,17 @@ const deleteOrder= (id) => {
       })
 }
 // esta funcion es para que cuando se de le en el boton actualizar  obtenga los datos en los campos para modificar
-const openModal = (order) => {
-    document.getElementById('id2').value = order.id;
-    document.getElementById('nombre2').value = order.nombre;
-    document.getElementById('precio2').value = order.precio;
+const openModal = (contact) => {
+    document.getElementById('id2').value = contact.id;
+    document.getElementById('titulo2').value = contact.titulo;
+    document.getElementById('correo2').value = contact.correo;
+    document.getElementById('tipo2').value = contact.tipo;
+    document.getElementById('text2').value = contact.text;
 }
 </script>
 
 <template>
-<Head title="Orders"></Head>
+<Head title="Contact"></Head>
 
 <AuthenticatedLayout>
     <template #header>
@@ -55,22 +57,23 @@ const openModal = (order) => {
           </div>
       </div>
       <div class="container d-lg-flex justify-content-center table-responsive  ">
-        <table class="table table-bordered w-75">
+        <table class="table w-75 table-bordered">
   <thead class="bg-secondary">
     <tr>
       <th scope="col">Id</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Precio</th>
+      <th scope="col">Titulo</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Opinion</th>
       <th scope="col">Acciones</th>
-     
 
     </tr>
   </thead>
-  <tbody v-if="orders && orders.length">
-    <tr v-for="o in orders" :key="o.id">
+  <tbody v-if="contacts && contacts.length">
+    <tr v-for="o in contacts" :key="o.id">
     <td>{{  o.id  }}</td>
-    <td>{{  o.nombre  }}</td>
-    <td>{{  o.precio }}$</td>
+    <td>{{  o.titulo  }}</td>
+    <td>{{  o.tipo }}</td>
+    <td>{{  o.text }}</td>
 
     <div class="container d-inline w-50">
         <td class="p-2"><button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEdit" @click="openModal(o)">
@@ -83,15 +86,15 @@ const openModal = (order) => {
   </tbody>
   <tbody v-else>
         <tr>
-          <td colspan="3">No hay productos disponibles.</td>
+          <td colspan="3">No hay quejas ni sugerencias  disponibles.</td>
         </tr>
       </tbody>
 
 
 </table>
 </div>
-<ModalOrder :modal="'modalCreate'" :title="'Añadir Oferta'" :op="'1'"></ModalOrder>
-<ModalOrder :modal="'modalEdit'" :title="'Editar Oferta'" :op="'2'"></ModalOrder>
+<ModalContact :modal="'modalCreate'" :title="'Añadir Quejas o Sugerencias'" :op="'1'"></ModalContact>
+<ModalContact :modal="'modalEdit'" :title="'Editar Quejas o Sugerencias'" :op="'2'"></ModalContact>
 
 </template>
 

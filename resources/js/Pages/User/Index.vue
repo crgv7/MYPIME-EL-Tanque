@@ -20,13 +20,13 @@ const deleteOrder= (id) => {
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonText: 'Borrar'
       }).then((result) => {
         if (result.isConfirmed) {
             form.delete(route('users.destroy', id))
             Swal.fire(
-                'Deleted!',
-                'Your file has been deleted.',
+                'Eliminar',
+                'Su archivo se ha eliminado',
                 'success'
               )
         }
@@ -53,15 +53,15 @@ const openModal = (user) => {
           <button class="btn btn-secondary w-25" data-bs-toggle="modal" data-bs-target="#modalCreate">
             <i class="bi bi-plus-circle-fill"></i>Añadir</button>
       </div>
-      <div class="container d-lg-flex justify-content-center table-responsive  ">
-        <table class="table w-75">
-  <thead>
+      <div class="container d-lg-flex justify-content-center table-responsive">
+        <table class="table w-75 table-bordered">
+  <thead class="bg-secondary">
     <tr>
-      <th scope="col">id</th>
-      <th scope="col">nombre</th>
-      <th scope="col">email</th>
-      <th scope="col">create_at</th>
-
+      <th scope="col">Id</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Correo</th>
+      <th scope="col">Fecha de creación</th>
+      <th scope="col" class="mx-5">Acciones</th>
     </tr>
   </thead>
 
@@ -70,13 +70,13 @@ const openModal = (user) => {
     <td>{{  user.id  }}</td>
     <td>{{  user.name  }}</td>
     <td>{{  user.email }}</td>
-    <td>{{  user.created_at }}</td>
+    <td >{{  user.created_at }}</td>
 
-    <div class="container d-inline w-50">
-        <td class="p-2"><button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEdit" @click="openModal(user)">
+    <div class=" container d-inline w-50">
+        <td class=" w-50 pe-2"><button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEdit" @click="openModal(user)">
         <i class="bi bi-pencil-square"></i>
     </button></td>
-    <td><button class="btn btn-danger" @click="deleteOrder(user.id)">
+    <td class=""><button class="btn btn-danger" @click="deleteOrder(user.id)">
         <i class="bi bi-trash"></i></button></td>
     </div>
     </tr>
@@ -91,6 +91,7 @@ const openModal = (user) => {
 <ModalOrder :modal="'modalCreate'" :title="'Añadir Usuario'" :op="'1'"></ModalOrder>
 <ModalOrder :modal="'modalEdit'" :title="'Editar Usuario'" :op="'2'"></ModalOrder>
     </template>
-   <Foot></Foot>
+   
 </AuthenticatedLayout>
+<Foot></Foot>
 </template>

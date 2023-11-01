@@ -20,13 +20,13 @@ const deleteOrder= (id) => {
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonText: 'Borrar'
       }).then((result) => {
         if (result.isConfirmed) {
             form.delete(route('reservations.destroy', id))
             Swal.fire(
-                'Deleted!',
-                'Your file has been deleted.',
+                'Eliminar',
+                'Su archivo se ha eliminado',
                 'success'
               )
         }
@@ -55,15 +55,16 @@ const openModal = (reservation) => {
             <i class="bi bi-plus-circle-fill"></i>Añadir</button>
       </div>
       <div class="container d-lg-flex justify-content-center table-responsive">
-        <table class=" table w-75">
-  <thead>
+        <table class="table w-75 table-bordered">
+  <thead class="bg-secondary">
     <tr>
-      <th scope="col">id</th>
-      <th scope="col">nombre</th>
-      <th scope="col">telefono</th>
-      <th scope="col">correo</th>
-      <th scope="col">fecha</th>
-      <th scope="col">cantidad de personas</th>
+      <th scope="col">Id</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Teléfono</th>
+      <th scope="col">Correo</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">Cantidad de personas</th>
+      <th scope="col">Acciones</th>
     </tr>
   </thead>
 
@@ -96,6 +97,7 @@ const openModal = (reservation) => {
 <ModalOrder :modal="'modalCreate'" :title="'Añadir Reservacion'" :op="'1'"></ModalOrder>
 <ModalOrder :modal="'modalEdit'" :title="'Editar Reservacion'" :op="'2'"></ModalOrder>
 </template>
-<Foot></Foot>
+
 </AuthenticatedLayout>
+<Foot></Foot>
 </template>

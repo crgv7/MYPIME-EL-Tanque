@@ -75,21 +75,25 @@ const cerrar = () =>{
 
 
 
-                    <div class="input-group mb-3">
-                        <span class="input-group-text"><i class="bi bi-calendar3-event-fill"></i></span>
-                        <TextInput :id="'fecha'+op" class="form-control" type="text"
-                        name="fecha" v-model="form.fecha" maxlength="80" placeholder="fecha"
-                        required></TextInput>
+
+                    <div class="row d-flex mb-3">
+                        <div class="row">
+                            <label class="mb-1">Fecha</label>
+                        </div>
+                        <div class="input-group ">
+                        <input :id="'fecha'+op" v-model="form.fecha" name="fecha"  type="date"  min="2023-01-01" max="2030-12-31" required />
                     </div>
-                    <div v-if="form.errors.correo" class="text-sm text-danger">
+                    <div v-if="form.errors.fecha" class="text-sm text-danger">
                         {{ form.errors.fecha }}
+                    </div>
+
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text"><i class="bi bi-people-fill"></i></span>
-                        <TextInput :id="'cantidad_personas'+op" class="form-control" type="text"
+                        <input :id="'cantidad_personas'+op" class="form-control" type="number" min="1" max="4"
                         name="fecha" v-model="form.cantidad_personas" maxlength="80" placeholder="cantidad de personas"
-                        required></TextInput>
+                        required>
                     </div>
                     <div v-if="form.errors.cantidad_personas" class="text-sm text-danger">
                         {{ form.errors.cantidad_personas }}
@@ -97,8 +101,8 @@ const cerrar = () =>{
 
 
 
-                    <div class="d-grid mx-auto">
-                        <button class="btn btn-success" :disabled="form.processing">
+                    <div class="d-flex mx-auto justify-content-end">
+                        <button class="btn btn-success text-white" style="width: 18%;" :disabled="form.processing">
                         <i class="fa-solid fa-floppy-disk"></i> Guardar
                         </button>
                     </div>

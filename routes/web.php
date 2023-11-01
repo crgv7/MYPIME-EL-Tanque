@@ -7,6 +7,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\ReservationsController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\ContactController;
 use App\Models\Orders;
 
 /*
@@ -46,14 +47,16 @@ Route::middleware('auth')->group(function () {
     Route::resource('orders', OrdersController::class);
     Route::resource('users', UsersController::class);
     Route::resource('reservations', ReservationsController::class);
+    Route::resource('contacts', ContactController::class);
 
 });
 
 
 Route::middleware('auth','role:admin')->group(function () {
-
+    Route::get('/showcontacts',[ ContactController::class, 'show'])->name('contacts.show');
     Route::resource('orders', OrdersController::class);
     Route::resource('users', UsersController::class);
+    Route::get('/ver_reservaciones', [ReservationsController::class, 'all_reservation'])->name('reservations.all_reservation'); 
 
 
 });

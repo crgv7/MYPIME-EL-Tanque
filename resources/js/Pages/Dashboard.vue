@@ -47,7 +47,7 @@ const props = defineProps({
         class="table-responsive d-flex justify-content-center"
         style="padding-bottom: 0px; margin-bottom: 66px"
       >
-      <table class="table w-50">
+      <table class="table w-50 table-bordered border-dark table-hover tabla tabla-oferta">
           <thead>
             <tr>
 
@@ -72,7 +72,7 @@ const props = defineProps({
       </div>
       <div class="container">
         <div class="row">
-          <div class="col-lg-4">
+          <div class="col-lg-4 temblor">
             <div
               class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3"
               data-bss-hover-animate="swing"
@@ -96,7 +96,7 @@ const props = defineProps({
               <p class="lead mb-0">Happy Hours, descuentos, promociones</p>
             </div>
           </div>
-          <div class="col-lg-4">
+          <div class="col-lg-4 temblor">
             <div
               class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3"
               data-bss-hover-animate="swing"
@@ -133,7 +133,7 @@ const props = defineProps({
               </p>
             </div>
           </div>
-          <div class="col-lg-4">
+          <div class="col-lg-4 temblor">
             <div
               class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3"
               data-bss-hover-animate="swing"
@@ -161,7 +161,7 @@ const props = defineProps({
       <div class="container-fluid p-0">
         <div class="row g-0">
           <div
-            class="col-lg-6 text-white order-lg-2 showcase-img"
+            class="col-lg-6 text-white order-lg-2 showcase-img reveal fade-right "
             style="
               background: url('assets/img/pexels-flo-dahm-541216.jpg') center /
                 cover;
@@ -171,7 +171,7 @@ const props = defineProps({
           >
             <span></span>
           </div>
-          <div class="col-lg-6 my-auto order-lg-1 showcase-text">
+          <div class="col-lg-6 my-auto order-lg-1 showcase-text reveal fade-left">
             <h2>Comida</h2>
             <p class="lead mb-0">
               Nuestros chefs expertos han creado un menú excepcional que ofrece
@@ -184,7 +184,7 @@ const props = defineProps({
         </div>
         <div class="row g-0">
           <div
-            class="col-lg-6 text-white showcase-img"
+            class="col-lg-6 text-white showcase-img reveal fade-left"
             style="
               background: url('assets/img/pexels-valeria-boltneva-1200348.jpg')
                 center / cover no-repeat;
@@ -194,7 +194,7 @@ const props = defineProps({
           >
             <span></span>
           </div>
-          <div class="col-lg-6 my-auto order-lg-1 showcase-text">
+          <div class="col-lg-6 my-auto order-lg-1 showcase-text reveal fade-right">
             <h2>Bebidas</h2>
             <p class="lead mb-0">
               Ofrecemos una amplia selección de cervezas frías, vinos finos y
@@ -204,7 +204,7 @@ const props = defineProps({
         </div>
         <div class="row g-0">
           <div
-            class="col-lg-6 text-white order-lg-2 showcase-img"
+            class="col-lg-6 text-white order-lg-2 showcase-img reveal fade-right"
             style="
               background: url('assets/img/pexels-feyza-simsek-16933554.jpg')
                 center / cover no-repeat;
@@ -213,7 +213,7 @@ const props = defineProps({
           >
             <span></span>
           </div>
-          <div class="col-lg-6 my-auto order-lg-1 showcase-text">
+          <div class="col-lg-6 my-auto order-lg-1 showcase-text reveal fade-left">
             <h2>Eventos</h2>
             <p class="lead mb-0">
               En nuestro bar, siempre hay algo emocionante sucediendo. Desde

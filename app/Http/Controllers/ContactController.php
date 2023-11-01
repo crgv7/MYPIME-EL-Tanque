@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Reservations;
+use App\Models\contact;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
 
-class ReservationsController extends Controller
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class ReservationsController extends Controller
     {
         //
         $user=Auth::user();
-        $reservations=Reservations::where('correo', $user->email)->get();
-        return inertia('Reservation/Index',compact('reservations'));
+        $contacts=Contact::where('correo', $user->email)->get();
+        return inertia('Contact/Index',compact('contacts'));
     }
 
     /**
@@ -36,33 +36,34 @@ class ReservationsController extends Controller
         //
         $user=Auth::user();
         $request->validate([
-            'nombre' => 'required',
-            'telefono' => 'required',
+            'titulo' => 'required',
+            'text' => 'required',
 
-            'fecha' => 'required',
-            'cantidad_personas' => 'required',
+
 
 
         ]);
-        $reservations=new Reservations($request->input());
+        $reservations=new Contact($request->input());
         $reservations->correo=$user->email;
         $reservations->save();
         //echo "Hola mundo";
-        return redirect('reservations');
+        return redirect('contacts');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Reservations $reservations)
+    public function show()
     {
         //
+        $contacts=Contact::all();
+        return inertia('Contact/show', compact('contacts'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Reservations $reservations)
+    public function edit(Contact $reservations)
     {
         //
     }
@@ -72,9 +73,9 @@ class ReservationsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $reservations=Reservations::find($id);
+        $reservations=Contact::find($id);
         $reservations->fill($request->input())->saveOrFail();
-        return redirect('reservations');
+        return redirect('contacts');
         //
     }
 
@@ -83,17 +84,9 @@ class ReservationsController extends Controller
      */
     public function destroy($id)
     {
-        $reservations=Reservations::find($id);
+        $reservations=Contact::find($id);
         $reservations->delete();
-        return redirect('reservations');
+        return redirect('contacts');
         //
-    }
-
-    public function all_reservation()
-    {
-        //
-      
-        $reservations=Reservations::all();
-        return inertia('Reservation/Index',compact('reservations'));
     }
 }
